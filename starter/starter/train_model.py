@@ -60,8 +60,8 @@ slice_metrics(cat_features, test, model, encoder, lb)
 logging.info(f'SUCCESS: Saved slice metrics on {cat_features}')
 
 # save model
-pkl_model = 'trained_model.pkl'
+pkl_model = './starter/model/trained_model.pkl'
 with open(pkl_model, 'wb') as f:
     pickle.dump(model, f)
 
-logging.info('SUCCESS: Saving model')
+logging.info('SUCCESS: Saving model in ml folder')
