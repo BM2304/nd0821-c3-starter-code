@@ -3,6 +3,7 @@
 from sklearn.model_selection import train_test_split
 from ml.model import compute_model_metrics, inference, train_model
 from ml.data import process_data
+from data_slice import slice_metrics
 import pandas as pd
 import logging
 import pickle
@@ -34,9 +35,6 @@ cat_features = [
     "native-country",
 ]
 
-# keep data slice for comparison
-feature_slice = test["relationship"].to_numpy()
-
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
@@ -58,7 +56,8 @@ logging.info(
     f"Precision: {precision:.3f}, Recall: {recall:.3f}, Fbeta: {fbeta:.3f}")
 
 # test on slice data
-
+slice_metrics(cat_features, test, model, encoder, lb)
+logging.info(f'SUCCESS: Saved slice metrics on {cat_features}')
 
 # save model
 pkl_model = 'trained_model.pkl'
