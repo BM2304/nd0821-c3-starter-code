@@ -1,7 +1,7 @@
 # Script to train machine learning model.
 
 from sklearn.model_selection import train_test_split
-from ml.model import train_model
+from ml.model import compute_model_metrics, inference, train_model
 from ml.data import process_data
 import pandas as pd
 import logging
@@ -44,10 +44,20 @@ X_test, y_test, _, _ = process_data(
 )
 logging.info('SUCCESS: Preprocessing data')
 
-# Train and save a model.
+# Train model and report predictions.
 model = train_model(X_train, y_train)
 logging.info('SUCCESS: Training model')
 
+# prediction
+preds = inference(model, X_test)
+precision, recall, fbeta = compute_model_metrics(y_test, preds)
+logging.info(
+    f"Precision: {precision:.3f}, Recall: {recall:.3f}, Fbeta: {fbeta:.3f}")
+
+# test on slice data
+
+
+# save model
 pkl_model = 'trained_model.pkl'
 with open(pkl_model, 'wb') as f:
     pickle.dump(model, f)
