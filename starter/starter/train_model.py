@@ -16,8 +16,7 @@ logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s')
 
 # Load in the cleaned data
-data_path = os.path.join(os.getcwd(), 'data', 'cleaned_census.csv')
-data = pd.read_csv(data_path)
+data = pd.read_csv('./starter/data/cleaned_census.csv')
 logging.info('SUCCESS: Loaded cleaned census.csv data')
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -34,6 +33,10 @@ cat_features = [
     "sex",
     "native-country",
 ]
+
+# keep data slice for comparison
+feature_slice = test["relationship"].to_numpy()
+
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
