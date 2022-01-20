@@ -2,6 +2,6 @@ root - INFO - SUCCESS: Loaded cleaned census.csv data
 root - INFO - SUCCESS: Split data in training and test data
 root - INFO - SUCCESS: Preprocessing data
 root - INFO - SUCCESS: Training model
-root - INFO - Precision: 0.748, Recall: 0.618, Fbeta: 0.677
+root - INFO - Precision: 0.732, Recall: 0.618, Fbeta: 0.670
 root - INFO - SUCCESS: Saved slice metrics on ['workclass', 'education', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'native-country']
-root - INFO - SUCCESS: Saving model in ml folder
+root - INFO - SUCCESS: Saving model, encoder and label binarizer in ml folder

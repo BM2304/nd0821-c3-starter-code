@@ -59,9 +59,18 @@ logging.info(
 slice_metrics(cat_features, test, model, encoder, lb)
 logging.info(f'SUCCESS: Saved slice metrics on {cat_features}')
 
-# save model
+# save model, encoder and label_binarizer
 pkl_model = './starter/model/trained_model.pkl'
+pkl_encoder = './starter/model/binarizer.pkl'
+pkl_lb = './starter/model/lb.pkl'
+
 with open(pkl_model, 'wb') as f:
     pickle.dump(model, f)
 
-logging.info('SUCCESS: Saving model in ml folder')
+with open(pkl_encoder, 'wb') as f:
+    pickle.dump(encoder, f)
+
+with open(pkl_lb, 'wb') as f:
+    pickle.dump(lb, f)
+
+logging.info('SUCCESS: Saving model, encoder and label binarizer in ml folder')
