@@ -1,4 +1,5 @@
 import requests
+import logging
 from fastapi.testclient import TestClient
 from main import app
 
@@ -22,16 +23,16 @@ def test_predict_salary_low():
         "workclass": "Self-emp-not-inc",
         "fnlgt": 83311,
         "education": "Bachelors",
-        "education-num": 13,
-        "marital-status": "Married-civ-spouse",
+        "education_num": 13,
+        "marital_status": "Married-civ-spouse",
         "occupation": "Exec-managerial",
         "relationship": "Husband",
         "race": "White",
         "sex": "Male",
-        "capital-gain": 0,
-        "capital-loss": 0,
-        "hours-per-week": 13,
-        "native-country": "United-States"
+        "capital_gain": 0,
+        "capital_loss": 0,
+        "hours_per_week": 13,
+        "native_country": "United-States"
     }
     r = client.post("/predict/", json=data_low)
     assert r.status_code == 200
@@ -44,16 +45,16 @@ def test_predict_salary_high():
         "workclass": "Self-emp-not-inc",
         "fnlgt": 209642,
         "education": "HS-grad",
-        "education-num": 9,
-        "marital-status": "Married-civ-spouse",
+        "education_num": 9,
+        "marital_status": "Married-civ-spouse",
         "occupation": "Exec-managerial",
         "relationship": "Husband",
         "race": "White",
         "sex": "Male",
-        "capital-gain": 0,
-        "capital-loss": 0,
-        "hours-per-week": 45,
-        "native-country": "United-States"
+        "capital_gain": 0,
+        "capital_loss": 0,
+        "hours_per_week": 45,
+        "native_country": "United-States"
     }
     r = client.post("/predict/", json=data_high)
     assert r.status_code == 200

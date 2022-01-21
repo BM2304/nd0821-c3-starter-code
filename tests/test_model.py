@@ -7,7 +7,7 @@ import numpy as np
 @pytest.fixture(scope="session")
 def data():
     X = np.array([[1.0, 2.0, 1.0], [3.0, 4.0, 3.0]])
-    y = np.array([[1], [0]])
+    y = np.array([1, 0])
     return (X, y)
 
 
@@ -28,6 +28,7 @@ def test_model_metrics():
 
 def test_inference(data):
     clf = train_model(data[0], data[1])
-    test_X = np.array([[1.0, 1.0, 1.0]])
+    test_X = np.array([[2.0, 2.0, 1.0]])
+    print(inference(clf, test_X))
     assert inference(clf, test_X) == np.array([1])
     assert len(inference(clf, test_X)) == 1

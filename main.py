@@ -1,7 +1,7 @@
 import os
 import pickle
 from pydantic import BaseModel
-from fastapi import FastAPI
+from fastapi import Body, FastAPI
 import pandas as pd
 
 from starter.ml.data import process_data
