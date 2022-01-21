@@ -1,5 +1,4 @@
 # Script to train machine learning model.
-
 from sklearn.model_selection import train_test_split
 from ml.model import compute_model_metrics, inference, train_model
 from ml.data import process_data
@@ -7,7 +6,6 @@ from data_slice import slice_metrics
 import pandas as pd
 import logging
 import pickle
-import os
 
 # Logging
 logging.basicConfig(

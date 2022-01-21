@@ -1,8 +1,6 @@
-import imp
 import requests
 from fastapi.testclient import TestClient
 from main import app
-import pytest
 
 client = TestClient(app)
 
@@ -14,7 +12,7 @@ def test_get_hello():
 
 
 def test_predict_empty():
-    r = requests.post("/predict")
+    r = requests.post("/predict/")
     assert r.status_code == 422
 
 
@@ -35,7 +33,7 @@ def test_predict_salary_low():
         "hours-per-week": 13,
         "native-country": "United-States"
     }
-    r = requests.post("/predict", json=data_low)
+    r = requests.post("/predict/", json=data_low)
     assert r.status_code == 200
     assert r.json() == "<=50K"
 
@@ -57,6 +55,6 @@ def test_predict_salary_high():
         "hours-per-week": 45,
         "native-country": "United-States"
     }
-    r = requests.post("/predict", json=data_high)
+    r = requests.post("/predict/", json=data_high)
     assert r.status_code == 200
     assert r.json() == ">50K"

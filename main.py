@@ -83,7 +83,7 @@ async def say_hello():
     return {"greeting": "Hello World!"}
 
 
-@app.post("/predict")
+@app.post("/predict/")
 async def predict_salary_level(data: DataItem):
     data_dict = {
         "age": [data.age],
