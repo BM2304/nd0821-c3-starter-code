@@ -18,7 +18,7 @@ data = {
     "native_country": "United-States"
 }
 response = requests.post(
-    'http://127.0.0.1:8000/predict/', data=json.dumps(data))
+    'https://census-salary.herokuapp.com/predict/', data=json.dumps(data))
 
 # print(response.status_code)
 print(response.json())
