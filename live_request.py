@@ -20,5 +20,5 @@ data = {
 response = requests.post(
     'https://census-salary.herokuapp.com/predict/', data=json.dumps(data))
 
-# print(response.status_code)
+print(response.status_code)
 print(response.json())
