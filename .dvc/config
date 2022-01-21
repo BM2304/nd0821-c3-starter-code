@@ -1,0 +1,4 @@
+[core]
+    remote = aws_dvc
+['remote "aws_dvc"']
+    url = s3://awsudacity/mldevops
