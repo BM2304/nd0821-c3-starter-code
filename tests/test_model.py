@@ -30,5 +30,6 @@ def test_inference(data):
     clf = train_model(data[0], data[1])
     test_X = np.array([[2.0, 2.0, 1.0]])
     print(inference(clf, test_X))
-    assert inference(clf, test_X) == np.array([1])
-    assert len(inference(clf, test_X)) == 1
+    infer_data = inference(clf, test_X)
+    assert infer_data == np.array([1])
+    assert len(infer_data) == 1
