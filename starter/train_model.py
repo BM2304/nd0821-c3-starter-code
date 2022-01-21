@@ -15,7 +15,7 @@ logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s')
 
 # Load in the cleaned data
-data = pd.read_csv('./starter/data/cleaned_census.csv')
+data = pd.read_csv('./data/cleaned_census.csv')
 logging.info('SUCCESS: Loaded cleaned census.csv data')
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -58,9 +58,9 @@ slice_metrics(cat_features, test, model, encoder, lb)
 logging.info(f'SUCCESS: Saved slice metrics on {cat_features}')
 
 # save model, encoder and label_binarizer
-pkl_model = './starter/model/trained_model.pkl'
-pkl_encoder = './starter/model/binarizer.pkl'
-pkl_lb = './starter/model/lb.pkl'
+pkl_model = './model/trained_model.pkl'
+pkl_encoder = './model/binarizer.pkl'
+pkl_lb = './model/lb.pkl'
 
 with open(pkl_model, 'wb') as f:
     pickle.dump(model, f)

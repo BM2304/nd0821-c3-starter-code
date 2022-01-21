@@ -22,6 +22,6 @@ def slice_metrics(cat_features, test, model, encoder, lb):
                                  f"Recall: {recall:.3f}, Fbeta: {fbeta:.3f}")
 
     # Write metrics to file
-    with open('./starter/model/slice_metrics.txt', 'w') as f:
+    with open('./model/slice_output.txt', 'w') as f:
         for slice_metric in slice_metrics:
             f.write(slice_metric + '\n')
